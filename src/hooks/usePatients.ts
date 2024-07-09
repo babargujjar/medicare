@@ -45,16 +45,16 @@ const usePatients = () => {
     await dispatch(deletePatient(id));
   };
 
-  const handleNavigate = (
-    e: React.MouseEvent<HTMLDivElement, MouseEvent>,
-    patient: Patient
-  ) => {
-    e.preventDefault();
-    const patientData = JSON.stringify(patient);
-    router.push(
-      `/updatePatients?patientData=${encodeURIComponent(patientData)}`
-    );
-  };
+  // const handleNavigate = (
+  //   e: React.MouseEvent<HTMLDivElement, MouseEvent>,
+  //   patient: Patient
+  // ) => {
+  //   e.preventDefault();
+  //   const patientData = JSON.stringify(patient);
+  //   router.push(
+  //     `/updatePatients?patientData=${encodeURIComponent(patientData)}`
+  //   );
+  // };
 
   return {
     totalPatients,
@@ -62,7 +62,7 @@ const usePatients = () => {
     selectedPatientIndex,
     toggleOptions,
     deletePatients,
-    handleNavigate,
+    // handleNavigate,
   };
 };
 

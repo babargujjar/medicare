@@ -22,7 +22,7 @@ const page = () => {
     selectedPatientIndex,
     toggleOptions,
     deletePatients,
-    handleNavigate,
+    // handleNavigate,
   } = usePatients();
 
   return (
