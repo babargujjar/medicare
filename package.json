@@ -1,0 +1,47 @@
+{
+  "name": "medicare",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "prisma generate && next build",
+    "start": "next start",
+    "lint": "next lint"
+  },
+  "dependencies": {
+    "@mapbox/node-pre-gyp": "^1.0.11",
+    "@prisma/client": "^5.12.1",
+    "@reduxjs/toolkit": "^2.2.3",
+    "apexcharts": "^3.49.0",
+    "axios": "^1.6.8",
+    "bcrypt": "^5.1.1",
+    "cldr": "^7.5.0",
+    "dayjs": "^1.11.11",
+    "express": "^4.19.2",
+    "globalize": "^1.7.0",
+    "next": "14.1.4",
+    "next-auth": "^4.24.7",
+    "react": "^18",
+    "react-apexcharts": "^1.4.1",
+    "react-big-calendar": "^1.12.1",
+    "react-datepicker": "^6.9.0",
+    "react-dom": "^18",
+    "react-hot-toast": "^2.4.1",
+    "react-redux": "^9.1.2"
+  },
+  "devDependencies": {
+    "@types/bcrypt": "^5.0.2",
+    "@types/globalize": "^1.5.5",
+    "@types/node": "^20",
+    "@types/react": "^18",
+    "@types/react-big-calendar": "^1.8.9",
+    "@types/react-datepicker": "^6.2.0",
+    "@types/react-dom": "^18",
+    "autoprefixer": "^10.0.1",
+    "html-loader": "^5.0.0",
+    "postcss": "^8",
+    "prisma": "^5.12.1",
+    "tailwindcss": "^3.3.0",
+    "typescript": "^5"
+  }
+}

@@ -1,0 +1,94 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mongodb"
+  url      = env("DATABASE_URL")
+}
+
+model UserData {
+  id             String    @id @default(auto()) @map("_id") @db.ObjectId
+  name           String
+  email          String    @unique
+  password       String
+  companyName    String
+  industry       String
+  employe        String
+  // image         String
+  createdAt      DateTime  @default(now())
+  emailVerified  DateTime? @map("verifiedAt")
+
+  // @@map("userData")
+}
+model User {
+  id             String    @id @default(auto()) @map("_id") @db.ObjectId
+  email          String    @unique
+  hashedPassword String
+  name           String?
+  username       String?
+  // image         String
+  createdAt      DateTime  @default(now())
+  emailVerified  DateTime? @map("verifiedAt")
+  sessions       Session[]
+
+  // @@map("userData")
+}
+
+// model UserData {
+//   id          String @id @default(auto()) @map("_id") @db.ObjectId
+//   name        String
+//   companyName String
+//   industry    String
+//   employe     String
+// }
+
+model Patients {
+  id        String @id @default(auto()) @map("_id") @db.ObjectId
+  foreName  String
+  sureName  String
+  dateBirth String
+  gender    String
+  diasease  String
+  note      String
+  phone     String
+  status    String
+  createdAT String
+
+  @@map("patients")
+}
+
+model Appointment {
+  id                String   @id @default(auto()) @map("_id") @db.ObjectId
+  dateAndTime       String
+  patient           String
+  purposeOfVisit    String
+  appointmentStatus String
+  duration          String
+  appointmentType   String
+  consultationType  String
+
+
+  @@map("appointments")
+
+}
+
+model Session {
+  id           String   @id @default(auto()) @map("_id") @db.ObjectId
+  sessionToken String   @unique
+  userId       String   @db.ObjectId
+  expires      DateTime @map("expiresAt")
+  user         User     @relation(fields: [userId], references: [id])
+
+  @@map("sessions")
+}
+
+model VerificationToken {
+  id         String   @id @default(auto()) @map("_id") @db.ObjectId
+  identifier String
+  token      String   @unique
+  expires    DateTime @map("expiresAt")
+
+  @@unique([identifier, token])
+  @@map("verification_tokens")
+}
